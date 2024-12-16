@@ -19,13 +19,15 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '21.7.1' # Ensure this matches your project requirements
+          node-version: "21.7.1" # Ensure this matches your project requirements
 
       - name: Install dependencies
         run: npm install
 
       - name: Build
-        run: CI=false npm run build
+        run: |
+        export CI=false
+        npm run build
 
       - name: Deploy
         uses: Azure/static-web-apps-deploy@v1
